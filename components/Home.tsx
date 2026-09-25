@@ -77,7 +77,7 @@ export default function Home() {
       <section className="hero" id="home" aria-labelledby="hero-heading">
         <video ref={video} className="hero-video" muted loop playsInline preload="none" poster="/media/hero-poster.webp" aria-hidden="true"><source src="/video/hero-web.mp4" type="video/mp4"/></video>
         <div className="hero-shade"/>
-        <div className="hero-content"><p className="eyebrow"><span/> OBSERVATORY, CAPE TOWN <span/></p><h1 id="hero-heading">A CUT OF<br/><em>DISTINCTION.</em></h1><a className="button" href="#book">Book Now</a></div>
+        <div className="hero-content"><h1 id="hero-heading">A CUT OF<br/><em>DISTINCTION.</em></h1><p className="eyebrow"><span/> OBSERVATORY, CAPE TOWN <span/></p><a className="button" href="#book">Book Now</a></div>
       </section>
       <section className="section services-section" id="services" aria-labelledby="services-heading">
         <div className="section-head"><div><h2 id="services-heading">FIND YOUR <em>LOOK.</em></h2></div><p>Fresh starts with the details.<br/>Six ways to make the chair your own.</p></div>
