@@ -9,11 +9,17 @@ export default defineConfig({
   workers: 1,
   reporter: [["list"]],
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://localhost:3000",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://localhost:3100",
     browserName: "chromium",
     viewport: { width: 1440, height: 1000 },
     reducedMotion: "reduce",
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
+  },
+  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : {
+    command: "npm.cmd run dev -- --port 3100",
+    url: "http://localhost:3100",
+    reuseExistingServer: false,
+    timeout: 120_000,
   },
 });

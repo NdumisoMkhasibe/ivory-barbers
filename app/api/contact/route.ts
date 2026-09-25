@@ -15,6 +15,6 @@ export async function POST(request: Request) {
     const sql = database();
     const rows = await sql`INSERT INTO contact_messages (name, email, subject, message) VALUES (${name}, ${email}, ${subject}, ${message}) RETURNING id`;
     if (!rows[0]?.id) throw new Error("Contact message not saved");
-    return json({ success: true, message: "Your message has been saved for this portfolio demo. No email has been sent." }, 201);
+    return json({ success: true, message: "Your message has been saved. No email has been sent." }, 201);
   } catch (error) { return errorResponse(error); }
 }

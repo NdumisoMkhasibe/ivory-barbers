@@ -50,7 +50,7 @@ test("service selection preserves barber-first flow and Sundays cannot be select
   if (!(await databaseReady(page))) {
     await expect(booking.locator(".booking-times").getByRole("alert")).toBeVisible();
     await expect(booking.getByRole("button", { name: "Your details", exact: true })).toBeDisabled();
-    await expect(booking.getByText("Your demo appointment is booked.")).toHaveCount(0);
+    await expect(booking.getByText("Your appointment is booked.")).toHaveCount(0);
   } else {
     await expect(booking.locator(".booking-slot-grid button").first()).toBeVisible();
   }
@@ -146,13 +146,13 @@ test("real saved booking, assigned barber, matching calendars and rejected inval
   await booking.getByRole("button", { name: "Review appointment" }).click();
   await booking.getByRole("checkbox").check();
   const responsePromise = page.waitForResponse((response) => response.url().endsWith("/api/bookings") && response.request().method() === "POST");
-  await booking.getByRole("button", { name: "Confirm demo booking" }).click();
+  await booking.getByRole("button", { name: "Confirm booking" }).click();
   const response = await responsePromise;
   expect(response.status()).toBe(201);
   const result = await response.json();
   const saved = result.booking;
   expect(["kylie", "pro", "steve"]).toContain(saved.barberId);
-  await expect(booking.getByRole("heading", { name: "Your demo appointment is booked." })).toBeVisible();
+  await expect(booking.getByRole("heading", { name: "Your appointment is booked." })).toBeVisible();
   await expect(booking.locator(".booking-confirmation-details")).toContainText(saved.barberName);
   const google = new URL(await booking.getByRole("link", { name: "Add to Google Calendar" }).getAttribute("href") as string);
   const calendarInstant = (value: string) => new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");

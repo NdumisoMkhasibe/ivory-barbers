@@ -9,6 +9,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'IVORY Barbers | A Cut of Distinction.',
+  metadataBase: new URL('https://ivory-barbers.vercel.app'),
   description: 'Thoughtful cuts. Everyday confidence. Discover IVORY Barbers in Observatory, explore the menu and try our working booking and AI Preview.',
   icons: { icon: '/images/IVORY_Barbers_Logo.png' },
   openGraph: { title: 'IVORY Barbers — A Cut of Distinction.', description: 'Your style. Our craft. An Observatory barber shop concept.', images: ['/images/IVORY_Barbers_Logo.png'] }

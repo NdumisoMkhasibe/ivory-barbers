@@ -16,7 +16,7 @@ export default function Privacy() {
       <li>Preview: a photo you select and the hairstyle you request. Only upload your own photo, or a photo you have permission to process.</li>
     </ul>
     <h2>How the information is used</h2>
-    <p>Bookings are saved to demonstrate a real scheduling system and prevent overlapping appointments. Contact messages and reviews are saved for project review and moderation. We do not send emails or SMS messages, take payments, sell contact details or create customer accounts.</p>
+    <p>Bookings are saved to manage appointments and prevent overlapping times. Contact messages and reviews are saved for project review and moderation. We do not send emails or SMS messages, take payments, sell contact details or create customer accounts.</p>
     <h2>Where it is processed</h2>
     <p>The website and server routes run on Vercel. Booking details, contact messages and pending reviews are stored in Neon Postgres. AI Preview sends a resized version of your image to Cloudflare Workers AI for generation. Cloudflare processes it under its own service terms and privacy practices. We do not save uploaded or generated images to the booking database or a project photo library.</p>
     <h2>Technical data and fair use</h2>

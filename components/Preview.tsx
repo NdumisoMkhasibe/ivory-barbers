@@ -177,7 +177,7 @@ export default function Preview({ onBook }: { onBook: (serviceId: string) => voi
               {loading ? <LoaderCircle size={18} className="preview-spinner" aria-hidden="true" /> : null}
               {loading ? "Creating your preview…" : cooldown > 60 ? "Daily preview limit reached" : cooldown > 0 ? `Try again in ${cooldown}s` : "Create My Preview"}
             </button>
-            <p className="preview-privacy" id="preview-privacy"><ShieldCheck size={15} aria-hidden="true" /><span>Photos are processed temporarily and are never saved in our database. Two attempts per connection daily; five across this demo. Limits reset at 02:00 SAST.</span></p>
+            <p className="preview-privacy" id="preview-privacy"><ShieldCheck size={15} aria-hidden="true" /><span>Photos are processed temporarily and are never saved in our database. Two attempts per connection daily; five per day. Limits reset at 02:00 SAST.</span></p>
             {error && <p className="preview-error" role="alert">{error}</p>}
           </form>
           <div className="preview-display" aria-busy={loading}>

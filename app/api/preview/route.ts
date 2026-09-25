@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     const visitor = await consumeLimit(requestKey(request, "preview"), 2, 86400);
     if (!visitor.allowed) return failure("Your connection has used its two preview attempts today. Please return after 02:00 South African time.", "VISITOR_QUOTA", 429, visitor.retryAfter);
     const global = await consumeLimit("preview-global", 5, 86400);
-    if (!global.allowed) return failure("Today's free demo previews have all been used. Preview resets at 02:00 South African time; booking is still available.", "DAILY_QUOTA", 429, global.retryAfter);
+    if (!global.allowed) return failure("Today's free previews have all been used. Preview resets at 02:00 South African time; booking is still available.", "DAILY_QUOTA", 429, global.retryAfter);
   } catch {
     // Fail closed: never bypass persistent quota protection if Neon is unavailable.
     return failure("Preview is temporarily unavailable while its daily allowance cannot be checked. Please try again later.", "QUOTA_UNAVAILABLE", 503);
@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     if (!response.ok || payload?.success === false) {
       if (codes.includes(3036)) return failure("Cloudflare's daily free AI allowance has been used. Please return after 02:00 South African time.", "DAILY_QUOTA", 429, 86400 - Math.floor(Date.now() / 1000) % 86400);
       if (response.status === 429 || codes.includes(3040)) return failure("The AI model is busy right now. Please try again later; your photo has not been saved.", "MODEL_BUSY", 429, 60);
-      if (response.status === 401 || response.status === 403 || response.status === 404 || codes.includes(5007)) return failure("This AI model is currently unavailable for the demo account. You can still browse and book your preferred style.", "MODEL_UNAVAILABLE", 503);
+      if (response.status === 401 || response.status === 403 || response.status === 404 || codes.includes(5007)) return failure("This AI model is currently unavailable. You can still browse and book your preferred style.", "MODEL_UNAVAILABLE", 503);
       return failure("The AI model could not create this preview. Please try a clear, well-lit portrait later.", "MODEL_ERROR", 502);
     }
     let generated: Buffer;

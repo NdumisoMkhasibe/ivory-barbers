@@ -126,7 +126,7 @@ export default function Booking({ selectedService }: { selectedService?: string 
       {confirmation ? <div className="booking-confirmation">
         <span className="booking-success-mark" aria-hidden="true">✓</span>
         <span className="booking-eyebrow">SAVED SUCCESSFULLY</span>
-        <h3 ref={heading} tabIndex={-1}>Your demo appointment is booked.</h3>
+        <h3 ref={heading} tabIndex={-1}>Your appointment is booked.</h3>
         <p>Looking sharp starts here, {confirmation.booking.firstName}. Your appointment is saved. Add it to your calendar below.</p>
         <dl className="booking-confirmation-details">
           <div><dt>Your look</dt><dd>{confirmation.booking.serviceName}</dd></div>
