@@ -1,0 +1,93 @@
+[
+  {
+    "original": "public/images/elephant-skin.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/elephant-skin.webp",
+    "bytes": 449030
+  },
+  {
+    "original": "public/images/IVORY_Barbers_Logo.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/logo.webp",
+    "bytes": 65846
+  },
+  {
+    "original": "public/images/services/beard.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/beard.webp",
+    "bytes": 76554
+  },
+  {
+    "original": "public/images/services/brush.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/brush.webp",
+    "bytes": 66158
+  },
+  {
+    "original": "public/images/services/chiskop.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/chiskop.webp",
+    "bytes": 49232
+  },
+  {
+    "original": "public/images/services/fade.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/fade.webp",
+    "bytes": 65696
+  },
+  {
+    "original": "public/images/services/trim.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/trim.webp",
+    "bytes": 62330
+  },
+  {
+    "original": "public/images/services/custom cut.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/services/custom.webp",
+    "bytes": 50130
+  },
+  {
+    "original": "public/images/team/Ashley.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/team/ashley.webp",
+    "bytes": 50188
+  },
+  {
+    "original": "public/images/team/CEO.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/team/ceo.webp",
+    "bytes": 58336
+  },
+  {
+    "original": "public/images/team/Kylie.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/team/kylie.webp",
+    "bytes": 53944
+  },
+  {
+    "original": "public/images/team/PRO.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/team/pro.webp",
+    "bytes": 52550
+  },
+  {
+    "original": "public/images/team/Steve.png",
+    "width": 1254,
+    "height": 1254,
+    "optimized": "public/media/team/steve.webp",
+    "bytes": 56334
+  }
+]
