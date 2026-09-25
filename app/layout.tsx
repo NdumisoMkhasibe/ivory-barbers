@@ -9,7 +9,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'IVORY Barbers | A Cut of Distinction.',
-  description: 'Thoughtful cuts. Everyday confidence. Discover IVORY Barbers, a fictional Observatory barber shop, explore the menu and try our working booking and AI Preview.',
+  description: 'Thoughtful cuts. Everyday confidence. Discover IVORY Barbers in Observatory, explore the menu and try our working booking and AI Preview.',
   icons: { icon: '/images/IVORY_Barbers_Logo.png' },
   openGraph: { title: 'IVORY Barbers — A Cut of Distinction.', description: 'Your style. Our craft. An Observatory barber shop concept.', images: ['/images/IVORY_Barbers_Logo.png'] }
 };

@@ -74,7 +74,7 @@ export function normalizePhone(input: string) {
 
 function calendarDate(value: string) { return new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
 function calendarDescription(booking: SavedBooking) {
-  return `${booking.serviceName} with ${booking.barberName} at IVORY Barbers.\nDuration: ${booking.duration} minutes. Menu price: R${booking.price}.\nAppointment reference: ${booking.id}.\nPlease arrive 5 minutes before your time. Phone: 076 532 2261.\nFictional portfolio demo: this saved appointment does not reserve a real in-person service. No payment has been taken.`;
+  return `${booking.serviceName} with ${booking.barberName} at IVORY Barbers.\nDuration: ${booking.duration} minutes. Menu price: R${booking.price}.\nAppointment reference: ${booking.id}.\nPlease arrive 5 minutes before your time. Phone: 076 532 2261.`;
 }
 
 export function googleCalendarUrl(booking: SavedBooking) {
