@@ -9,3 +9,6 @@ playwright-report/
 outputs/
 .tools/
 .env.local
+
+.vercel
+.env*
