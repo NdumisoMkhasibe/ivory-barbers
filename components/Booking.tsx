@@ -36,6 +36,7 @@ export default function Booking({ selectedService }: { selectedService?: string 
   const [details, setDetails] = useState({ firstName: "", surname: "", phone: "", email: "" });
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [confirmation, setConfirmation] = useState<Confirmation | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -44,6 +45,8 @@ export default function Booking({ selectedService }: { selectedService?: string 
   const barber = BARBERS.find((item) => item.id === barberId);
   const selectedSlot = slots.find((slot) => slot.time === time);
   const today = shopToday();
+
+  useEffect(() => { setHydrated(true); }, []);
 
   const preselect = (id: string) => {
     if (!SERVICES.some((item) => item.id === id)) return;
@@ -149,7 +152,7 @@ export default function Booking({ selectedService }: { selectedService?: string 
               {BARBERS.map((item) => <button type="button" key={item.id} aria-pressed={barberId === item.id} className={`booking-barber ${barberId === item.id ? "is-selected" : ""}`} onClick={() => { setBarberId(item.id); setTime(""); }}><div className="booking-barber-image"><img src={item.image} alt="" loading="lazy" /><span className="booking-choice-mark" aria-hidden="true">{barberId === item.id ? "✓" : "+"}</span></div><strong>{item.name}</strong><span>{item.description}</span></button>)}
               <button type="button" aria-pressed={barberId === "first-available"} className={`booking-barber booking-barber-any ${barberId === "first-available" ? "is-selected" : ""}`} onClick={() => { setBarberId("first-available"); setTime(""); }}><div className="booking-barber-image"><Hourglass /><span className="booking-choice-mark" aria-hidden="true">{barberId === "first-available" ? "✓" : "+"}</span></div><strong>First Available</strong><span>A little flexibility. The first available pair of expert hands.</span></button>
             </div>
-            <div className="booking-actions"><span className="booking-helper">Choose one to continue</span><button className="booking-button" type="button" disabled={!barberId} onClick={() => goTo(1)}>Choose your service</button></div>
+            <div className="booking-actions"><span className="booking-helper">Choose one to continue</span><button className="booking-button" type="button" disabled={!hydrated || !barberId} onClick={() => goTo(1)}>Choose your service</button></div>
           </>}
           {step === 1 && <>
             <div className="booking-services" role="group" aria-label="Choose a service">{SERVICES.map((item) => <button type="button" className={`booking-service ${serviceId === item.id ? "is-selected" : ""}`} key={item.id} aria-pressed={serviceId === item.id} onClick={() => { setServiceId(item.id); setTime(""); }}><span className="booking-service-top"><strong>{item.name}</strong><span className="booking-choice-mark" aria-hidden="true">{serviceId === item.id ? "✓" : "+"}</span></span><span className="booking-service-description">{item.description}</span><span className="booking-service-bottom"><strong>R{item.price}</strong><span>{item.duration} min</span></span></button>)}</div>
