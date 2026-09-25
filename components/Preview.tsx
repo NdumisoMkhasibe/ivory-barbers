@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
-import { ArrowRight, Download, ImagePlus, LoaderCircle, ScanFace, ShieldCheck, Sparkles, X } from "lucide-react";
+import { Download, ImagePlus, LoaderCircle, ScanFace, ShieldCheck, X } from "lucide-react";
 import "./preview.css";
 
 const styles = [
@@ -157,7 +157,7 @@ export default function Preview({ onBook }: { onBook: (serviceId: string) => voi
         </div>
         <div className="preview-workspace">
           <form onSubmit={generate} className="preview-controls">
-            <span className="preview-kicker"><Sparkles size={16} aria-hidden="true" /> A LITTLE INSPIRATION</span>
+            <span className="preview-kicker">A LITTLE INSPIRATION</span>
             <h3>See the look.<br />Make it yours.</h3>
             <p className="preview-intro">Use a clear, well-lit photo with your face and hair visible. One person, facing the camera, works best.</p>
             <label className="preview-upload" htmlFor="preview-photo">
@@ -174,9 +174,8 @@ export default function Preview({ onBook }: { onBook: (serviceId: string) => voi
             </fieldset>
             <label className="preview-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} disabled={loading} required /><span>This is my photo, and I agree to send it to Cloudflare for AI processing. <a href="/privacy">Privacy Policy</a></span></label>
             <button className="preview-generate" type="submit" disabled={!photo || !consent || loading || preparing || cooldown > 0}>
-              {loading ? <LoaderCircle size={18} className="preview-spinner" aria-hidden="true" /> : <Sparkles size={18} aria-hidden="true" />}
+              {loading ? <LoaderCircle size={18} className="preview-spinner" aria-hidden="true" /> : null}
               {loading ? "Creating your preview…" : cooldown > 60 ? "Daily preview limit reached" : cooldown > 0 ? `Try again in ${cooldown}s` : "Create My Preview"}
-              {!loading && <ArrowRight size={17} aria-hidden="true" />}
             </button>
             <p className="preview-privacy" id="preview-privacy"><ShieldCheck size={15} aria-hidden="true" /><span>Photos are processed temporarily and are never saved in our database. Two attempts per connection daily; five across this demo. Limits reset at 02:00 SAST.</span></p>
             {error && <p className="preview-error" role="alert">{error}</p>}
@@ -189,13 +188,13 @@ export default function Preview({ onBook }: { onBook: (serviceId: string) => voi
               </figure>
               <figure className="preview-frame preview-frame-after">
                 <figcaption><span>02</span> AI preview</figcaption>
-                {after ? <img src={after} alt={`AI-generated approximation of you with a ${selectedName}`} /> : <div className="preview-empty">{loading ? <LoaderCircle strokeWidth={1} size={44} className="preview-spinner" aria-hidden="true" /> : <Sparkles strokeWidth={1} size={43} aria-hidden="true" />}<p>{loading ? "Your look is taking shape…" : "A fresh perspective.\nYour chosen look."}</p></div>}
+                {after ? <img src={after} alt={`AI-generated approximation of you with a ${selectedName}`} /> : <div className="preview-empty">{loading ? <LoaderCircle strokeWidth={1} size={44} className="preview-spinner" aria-hidden="true" /> : null}<p>{loading ? "Your look is taking shape…" : "A fresh perspective.\nYour chosen look."}</p></div>}
               </figure>
             </div>
             <div aria-live="polite" className="preview-status">{loading ? (elapsed > 25 ? "Still creating your image. This may take up to a minute." : "Cloudflare is creating your preview. This usually takes a moment.") : after ? `${selectedName} preview ready. Compare it with your original photo.` : "Your original and AI preview will appear side by side."}</div>
             {after && <div className="preview-result-actions">
               <a className="preview-download" href={after} download={`ivory-${resultStyle}-ai-preview.jpg`}><Download size={17} aria-hidden="true" /> Download preview</a>
-              <button type="button" className="preview-book" onClick={() => onBook(resultStyle)}>Book This Look <ArrowRight size={17} aria-hidden="true" /></button>
+              <button type="button" className="preview-book" onClick={() => onBook(resultStyle)}>Book This Look</button>
               <button type="button" className="preview-clear" aria-label="Remove your photos from this page" onClick={() => { clearResult(); URL.revokeObjectURL(beforeRef.current); beforeRef.current = ""; setBefore(""); setPhoto(null); if (inputRef.current) inputRef.current.value = ""; }}><X size={16} aria-hidden="true" /> Clear photos</button>
             </div>}
             <p className="preview-disclaimer">An AI preview is an approximation, not a guaranteed haircut result. Hair texture, length and your barber’s advice will shape the final look.</p>
