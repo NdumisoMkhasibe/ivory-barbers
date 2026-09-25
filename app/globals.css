@@ -5,3 +5,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 .gold-star,.video-control{display:none}
 @media(max-width:700px){.site-header .menu-toggle{order:1}.site-header .header-logo{order:2;margin-left:auto}.site-header .header-book{display:none}}
+.hero-content .eyebrow{position:relative;top:-56px}
+@media(max-width:700px){.hero-content .eyebrow{top:-40px}}
