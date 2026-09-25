@@ -81,8 +81,8 @@ export default function Home() {
       </section>
       <section className="section services-section" id="services" aria-labelledby="services-heading">
         <div className="section-head"><div><h2 id="services-heading">FIND YOUR <em>LOOK.</em></h2></div><p>Fresh starts with the details.<br/>Six ways to make the chair your own.</p></div>
-        <div className="services-grid">{SERVICES.map((service)=><article className="service-card" key={service.id}><div className="service-image"><img src={`/media/services/${service.id}.webp`} alt={`${service.name} haircut inspiration`} width="640" height="640" loading="lazy"/></div><div className="service-heading"><h3>{service.name}</h3><span>R{service.price}</span></div><p className="service-duration">{service.duration} MINUTES</p><p className="service-description">{service.description}</p><button className="text-button" onClick={()=>book(service.id)} aria-label={`Book ${service.name}`}>Book this cut</button></article>)}</div>
-        <p className="menu-note"><Check size={16}/> Chiskop, Brush Cut and Fade Cut include a complimentary beard cut or trim.</p>
+        <div className="services-grid">{SERVICES.map((service)=><article className="service-card" key={service.id}><div className="service-image"><img src={`/media/services/${service.id}.webp`} alt={`${service.name} haircut inspiration`} width="640" height="640" loading="lazy"/></div><div className="service-heading"><h3>{service.name}</h3><span>R{service.price}</span></div><p className="service-duration">+/- {service.duration} MINUTES</p><p className="service-description">{service.description}</p><button className="text-button" onClick={()=>book(service.id)} aria-label={`Book ${service.name}`}>Book this cut</button></article>)}</div>
+        <p className="menu-note">Chiskop, Brush Cut and Fade Cut include a complimentary beard cut or trim.</p>
       </section>
       <Booking selectedService={selectedService}/>
       <Preview onBook={book}/>
