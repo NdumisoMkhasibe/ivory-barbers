@@ -136,7 +136,7 @@ export default function Booking({ selectedService }: { selectedService?: string 
           <div><dt>Service price</dt><dd>R{confirmation.booking.price} · {confirmation.booking.duration} minutes</dd></div>
           <div><dt>Area</dt><dd>{confirmation.booking.location}</dd></div>
         </dl>
-        <div className="booking-calendar-actions"><a className="booking-button" href={confirmation.googleCalendarUrl} target="_blank" rel="noopener noreferrer">Add to Google Calendar</a><a className="booking-button booking-button-outline" href={confirmation.icsUrl} download>Download for Apple Calendar <span className="booking-ics">.ics</span></a></div>
+        <div className="booking-calendar-actions"><a className="booking-button" href={confirmation.googleCalendarUrl} target="_blank" rel="noopener noreferrer">Add to Google Calendar</a><a className="booking-button booking-button-outline" href={confirmation.icsUrl} target="_blank" rel="noopener noreferrer">Add to Apple Calendar</a></div>
         <button className="booking-text-button" type="button" onClick={resetBooking}>Make another booking</button>
       </div> : <>
         <ol className="booking-progress" aria-label="Booking progress">{steps.map((label, index) => <li key={label} className={index === step ? "is-current" : index < step ? "is-complete" : ""}><button type="button" onClick={() => goTo(index)} disabled={index > step || submitting} aria-current={index === step ? "step" : undefined}><span className="booking-step-number">{index < step ? "✓" : `0${index + 1}`}</span><span>{label}</span></button></li>)}</ol>

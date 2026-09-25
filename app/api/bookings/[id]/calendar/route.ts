@@ -24,7 +24,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     };
     return new Response(calendarIcs(booking), { headers: {
       "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": `attachment; filename="ivory-barbers-${booking.id}.ics"`,
+      "Content-Disposition": `inline; filename="ivory-barbers-${booking.id}.ics"`,
       "Cache-Control": "private, no-store", "Referrer-Policy": "no-referrer", "X-Content-Type-Options": "nosniff",
     } });
   } catch (error) { return errorResponse(error); }
